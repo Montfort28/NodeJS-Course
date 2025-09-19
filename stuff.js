@@ -1,3 +1,16 @@
-var counter= require('./stuff')
+var counter= function(arr){
+     
+    return 'the array has '  +arr.length  +' elements'
+}
 
-console.log(counter(['1', '2', '4']))
+var adder = function(a,b){
+    return `the sum of the 2 numbers is ${a+b}`
+}
+
+var pi = 3.14
+
+module.exports.counter = counter
+module.exports.adder = adder
+module.exports.pi = pi 
+
+

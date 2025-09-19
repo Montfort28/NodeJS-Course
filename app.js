@@ -1,14 +1,5 @@
-var adder = function(a, b){
-   
-    return `the sum is ${a+b}`
+var stuff= require('./stuff')
 
-}
-
-console.log(adder(['5', '6']))
-
-var counter= function(arr){
-     
-    return 'the array has '  +arr.length  +' elements'
-}
-
-module.exports= counter
+console.log(stuff.counter(['1', '2', '4']))
+console.log(stuff.pi)
+console.log(stuff.adder(5, stuff.pi))
