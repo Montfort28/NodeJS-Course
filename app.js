@@ -1,4 +1,4 @@
-var stuff= require('./stuff')
+var stuff = require('./stuff')
 
 console.log(stuff.counter(['1', '2', '4']))
 console.log(stuff.pi)
@@ -12,4 +12,9 @@ myEmitter.on('someEvent', function(mssg){
     console.log(mssg)
 })
 
+myEmitter.on('greet', function(name){
+    console.log(`hello ${name}`)
+})
+
 myEmitter.emit('someEvent', 'event was emmitted')
+myEmitter.emit('greet', 'montfort')
