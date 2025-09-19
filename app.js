@@ -11,4 +11,4 @@ var counter= function(arr){
     return 'the array has '  +arr.length  +' elements'
 }
 
-module.export= counter
+module.exports= counter
