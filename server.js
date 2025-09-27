@@ -1,8 +1,11 @@
-const http = require("http");
-const fs = require("fs");
+const http = require('http');
+const fs = require('fs');
+const _ = require('lodash')
 
 const server = http.createServer((req, res) => {
-  console.log(req);
+  
+    const num = _.random(0, 300)
+    console.log(num)
 
   let path = "./views/";
   switch (req.url) {
