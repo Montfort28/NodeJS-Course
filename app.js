@@ -1,3 +1,5 @@
-const xyz = require('./stuff')
+const express = require('express')
 
-console.log(xyz.people, xyz.age)
+const app = express()
+
+app.listen(3000)
