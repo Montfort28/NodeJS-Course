@@ -1,15 +1,10 @@
 const express = require('express');
+const morgan = require('morgan')
 const app = express();
 app.listen(3000);
 app.set('view engine', 'ejs');
 
-app.use((req, res, next) =>{
-    console.log('new request made')
-    console.log('host:', req.hostname)
-    console.log('method:', req.method)
-    console.log('path:', req.path)
-    next()
-})
+app.use(morgan('tiny'))
 
 app.get('/', (req, res) => {
   const blogs = [
