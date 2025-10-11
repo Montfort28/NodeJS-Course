@@ -1,14 +1,15 @@
 const express = require('express');
-
-// express app
 const app = express();
-
-// listen for requests
 app.listen(3000);
-
-// register view engine
 app.set('view engine', 'ejs');
-// app.set('views', 'myviews');
+
+app.use((req, res, next) =>{
+    console.log('new request made')
+    console.log('host:', req.hostname)
+    console.log('method:', req.method)
+    console.log('path:', req.path)
+    next()
+})
 
 app.get('/', (req, res) => {
   const blogs = [
