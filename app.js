@@ -4,7 +4,9 @@ const app = express();
 app.listen(3000);
 app.set('view engine', 'ejs');
 
-app.use(morgan('tiny'))
+app.use(express.static('public'))
+app.use(morgan('dev'))
+
 
 app.get('/', (req, res) => {
   const blogs = [
