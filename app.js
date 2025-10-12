@@ -15,50 +15,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(morgan("dev"));
 
-app.get("/add-blog", (req, res) => {
-  const blog = new Blog({
-    title: "new blog 2",
-    body: "about new blog 2",
-    snippet: "more about new blog 2",
-  });
-  blog.save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.get('/all-blogs', (req, res) =>{
-  Blog.find()
-  .then((result) =>{
-    res.send(result)
-  })
-  .catch((err) =>{
-    console.log(err)
-  })
-})
-
-app.get('/single-blog', (req, res) =>{
-  Blog.findById('68ec24c27017b561758bc5f7')
-  .then((result) =>{
-    res.send(result)
-  })
-  .catch((err) =>{
-    console.log(err)
-  })
-})
 
 
-
-
-
-
-
-
-
-
+//routes
 
 app.get("/", (req, res) => {
   res.redirect('/blogs')
