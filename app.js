@@ -4,10 +4,12 @@ const mongoose = require('mongoose')
 const app = express();
 
 const dbURI = 'mongodb+srv://montfort:1234montfort@cluster0.xuqpcpf.mongodb.net/node-course?retryWrites=true&w=majority&appName=Cluster0'
-mongoose.connect()
+mongoose.connect(dbURI)
+.then(() =>
+  app.listen(3000))
+.catch((err) => 
+  console.log(err))
 
-
-app.listen(3000);
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'))
