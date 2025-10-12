@@ -1,10 +1,17 @@
 const express = require('express');
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 const app = express();
+
+const dbURI = 'mongodb+srv://montfort:1234montfort@cluster0.xuqpcpf.mongodb.net/node-course?retryWrites=true&w=majority&appName=Cluster0'
+mongoose.connect()
+
+
 app.listen(3000);
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'))
+
 app.use(morgan('dev'))
 
 
