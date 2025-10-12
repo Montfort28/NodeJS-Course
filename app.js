@@ -17,12 +17,11 @@ app.use(morgan("dev"));
 
 app.get("/add-blog", (req, res) => {
   const blog = new Blog({
-    title: "my new blog",
-    body: "about my new blog",
-    snippet: "more about my new blog",
+    title: "new blog 2",
+    body: "about new blog 2",
+    snippet: "more about new blog 2",
   });
-  blog
-    .save()
+  blog.save()
     .then((result) => {
       res.send(result);
     })
@@ -30,6 +29,36 @@ app.get("/add-blog", (req, res) => {
       console.log(err);
     });
 });
+
+app.get('/all-blogs', (req, res) =>{
+  Blog.find()
+  .then((result) =>{
+    res.send(result)
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
+})
+
+app.get('/single-blog', (req, res) =>{
+  Blog.findById('68ec24c27017b561758bc5f7')
+  .then((result) =>{
+    res.send(result)
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
+})
+
+
+
+
+
+
+
+
+
+
 
 app.get("/", (req, res) => {
   const blogs = [
