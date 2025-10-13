@@ -13,6 +13,7 @@ mongoose
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(express.urlencoded({extended: true}))
 app.use(morgan("dev"));
 
 
@@ -36,6 +37,13 @@ app.get('/blogs', (req, res) =>{
     console.log(err)
   })
 })
+
+app.post('/blogs', (req, res) =>{
+  console.log(req.body)
+  req.body()
+})
+
+
 app.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a new blog" });
 });
