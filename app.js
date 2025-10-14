@@ -51,13 +51,14 @@ app.post('/blogs', (req, res) =>{
 
 app.get('/blogs/:id', (req, res) =>{
   const id = req.params.id
-  .then((result) =>{
-    res.render("details", { title: "Blog Details"})
-  })
-  .catch((err) =>{
+  Blog.findById(id)
+   .then((result) =>{
+    res.render("details", { blog: result, title: "Blog Details"})
+   })
+   .catch((err) =>{
     console.log(err)
+   })
   })
-})
 
 app.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a new blog" });
