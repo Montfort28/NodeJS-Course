@@ -13,7 +13,7 @@ mongoose
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(morgan("dev"));
 
 
@@ -40,6 +40,7 @@ app.get('/blogs', (req, res) =>{
 
 app.post('/blogs', (req, res) =>{
   const blog = new Blog(req.body)
+  blog.save()
   .then((result) =>{
       res.redirect('/blogs')
   })
@@ -48,6 +49,15 @@ app.post('/blogs', (req, res) =>{
   })
 })
 
+app.get('/blogs/:id', (req, res) =>{
+  const id = req.params.id
+  .then((result) =>{
+    res.render("details", { title: "Blog Details"})
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
+})
 
 app.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a new blog" });
