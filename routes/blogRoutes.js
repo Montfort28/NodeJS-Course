@@ -1,4 +1,5 @@
 const express = require('express')
+const Blog = require("../models/blog");
 
 const router = express.Router()
 
@@ -46,4 +47,4 @@ router.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a new blog" });
 });
 
-modules.exports = router
+module.exports = router
