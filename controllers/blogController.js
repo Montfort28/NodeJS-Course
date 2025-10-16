@@ -32,7 +32,7 @@ const id = req.params.id
     res.render("details", { blog: result, title: "Blog Details"})
    })
    .catch((err) =>{
-    console.log(err)
+    res.render("404", { title: "page not found" })
    })
 }
 
